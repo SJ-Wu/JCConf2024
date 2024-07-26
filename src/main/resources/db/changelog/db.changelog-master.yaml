@@ -1,12 +1,8 @@
 databaseChangeLog:
-  - include:
-      labels: init
-      file: db/changelog/init-table.yml
-  - include:
-      labels: test
-      file: db/changelog/test-data.sql
   - includeAll:
-      path: db/changelog/v1.1
+      path: db/changelog/init
+  - include:
+      file: db/changelog/test/test-data.yml
 
 
 
