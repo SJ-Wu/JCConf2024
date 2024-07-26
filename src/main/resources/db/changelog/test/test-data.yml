@@ -5,7 +5,7 @@ databaseChangeLog:
       labels: test
       changes:
         - insert:
-            tableName: yaml_table
+            tableName: person
             columns:
               - column:
                   name: name
