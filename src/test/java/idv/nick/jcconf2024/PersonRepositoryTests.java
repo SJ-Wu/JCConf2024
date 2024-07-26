@@ -19,7 +19,7 @@ public class PersonRepositoryTests {
         registry.add("spring.datasource.url", () -> "jdbc:tc:postgresql:latest:///mydb");
         registry.add("spring.datasource.username", () -> "myuser");
         registry.add("spring.datasource.password", () -> "secret");
-        registry.add("spring.liquibase.label-filter", () -> "v1.0,test");
+        registry.add("spring.flyway.locations", () -> "classpath:/db/migration,classpath:/db/test");
     }
 
     @Test

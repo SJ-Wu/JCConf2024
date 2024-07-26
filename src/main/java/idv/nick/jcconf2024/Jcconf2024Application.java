@@ -7,12 +7,18 @@ import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Service;
 
+interface PersonRepository extends ListCrudRepository<Person, String> {
+
+    @Query("SELECT * FROM flyway.person ORDER BY salary DESC LIMIT 1")
+    Person findTopBySalary();
+}
+
 @SpringBootApplication
 public class Jcconf2024Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Jcconf2024Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Jcconf2024Application.class, args);
+    }
 
 }
 
@@ -20,19 +26,14 @@ public class Jcconf2024Application {
 @RequiredArgsConstructor
 class SalaryCalculatorService {
 
-	private final PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
-	public double calculateTotalSalary() {
-		return personRepository.findAll().stream()
-				.mapToDouble(Person::salary)
-				.sum();
-	}
+    public double calculateTotalSalary() {
+        return personRepository.findAll().stream()
+                .mapToDouble(Person::salary)
+                .sum();
+    }
 }
 
-record Person(String name, int age, String gender, double salary) {}
-
-interface PersonRepository extends ListCrudRepository<Person, String> {
-
-	@Query("SELECT * FROM person ORDER BY salary DESC LIMIT 1")
-	Person findTopBySalary();
+record Person(String name, int age, String gender, double salary) {
 }
