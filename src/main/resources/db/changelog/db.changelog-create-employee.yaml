@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1713436490273-1
+      author: sjwu (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: SALARY
+                  type: INT
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: CONSTRAINT_7
+                  name: ID
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: NAME
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ROLE
+                  type: VARCHAR(255)
+            tableName: EMPLOYEE
+

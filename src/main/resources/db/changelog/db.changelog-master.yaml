@@ -1,8 +1,6 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/init
   - include:
-      file: db/changelog/test/test-data.yml
+      file: db/changelog/db.changelog-create-employee.yaml
 
 
 
